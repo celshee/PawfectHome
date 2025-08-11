@@ -1,4 +1,4 @@
 package com.savePet.PawfectHome.user;
 
-public class userMapper {
+public class UserMapper {
 }
