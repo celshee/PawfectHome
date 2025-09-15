@@ -18,11 +18,16 @@ public class AdoptionRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    private User user_id;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @ManyToOne
-    private Pet pet_id;
+    @JoinColumn(name = "pet_id", nullable = false)
+    private Pet pet;
+
    @Enumerated(EnumType.STRING)
-    private AdoptionStatus status;
+   private AdoptionStatus status = AdoptionStatus.PENDING;
+
     @CreationTimestamp
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate adoption_date;

@@ -3,17 +3,24 @@ package com.savePet.PawfectHome.petPosting;
 import com.savePet.PawfectHome.user.User;
 import com.savePet.PawfectHome.pet.Pet;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "pet_postings")
 public class PetPosting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
     @ManyToOne
-    private Pet pet_id;
+    @JoinColumn(name = "pet_id", nullable = false)
+    private Pet pet;
     @ManyToOne
-    private User user_id;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
 }

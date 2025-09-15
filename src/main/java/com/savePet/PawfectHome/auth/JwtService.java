@@ -27,6 +27,8 @@ public class JwtService {
         }
 
     }
+
+
     public String generateToken(String uname) {
         Map<String, Object> claims = new HashMap<>();
 

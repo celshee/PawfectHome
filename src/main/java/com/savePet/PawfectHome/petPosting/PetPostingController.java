@@ -26,14 +26,7 @@ public class PetPostingController {
     public List<PetPosting> getAllPets(){
         return service.getAllPets();
     }
-    public ResponseEntity<?> addPetPosting(String name, int age, String breed, Gender gender, String description, PetStatus status, String image_url, String category, LocalDate created_at){
-        try{
-            Pet pet=petService.addPet(name,age, breed, gender, description, status, image_url,category,created_at);
-            PetPosting posting = service.addPetPosting(pet);
-            return new ResponseEntity<>(posting, HttpStatus.CREATED);
-        }catch(Exception e){
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
 
     }
-}
+
